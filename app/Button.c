@@ -15,3 +15,7 @@ void initButton(){
   //Init LED on PA0
   HAL_GPIO_Init(GPIOA, &pushButton);
 }
+
+int buttonStat()	{
+	return HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_0);
+}

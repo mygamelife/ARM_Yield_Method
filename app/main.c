@@ -66,7 +66,7 @@ void SDLED1(State *state)	{
 //State Diagram for LED2
 void SDLED2(State *state)	{
 	static uint32_t previousTime = 0;
-	static uint32_t delayTime = 0, buttonStat = 0;
+	static uint32_t delayTime = 0;
 
 	switch (*state)
 	{
@@ -76,9 +76,7 @@ void SDLED2(State *state)	{
 			break;
 
 		case BUTTON_STAT:
-			buttonStat = buttonPressed();
-
-			if(buttonStat)
+			if(buttonStat())
 				delayTime = ONE_HUNDRED_MILI_SEC;
 			else
 				delayTime = ONE_SEC;
@@ -114,7 +112,7 @@ void SDLED2(State *state)	{
 //State Diagram for LED3
 void SDLED3(State *state)	{
 	static uint32_t previousTime = 0;
-	static uint32_t buttonStat = 0, counter = 0;
+	static uint32_t counter = 0;
 
 	switch (*state)
 	{
@@ -124,44 +122,48 @@ void SDLED3(State *state)	{
 			break;
 
 		case BUTTON_STAT:
-			buttonStat = buttonPressed();
-
-			if(counter == 1)
-				*state = BUTTON_STAT;
-
-			else if(buttonStat)	{
-				counter++;
+			if(buttonStat() == 1)	{
+				counter = 0;
 				*state = ON_LED3;
-				break;
 			}
-			break;
+			else	*state = BUTTON_STAT;
 
 		case ON_LED3:
-			if((counter != 1))	{
-				if(getCurrentTime() - previousTime > 0)	{
-					previousTime = getCurrentTime();
-					turnOnLED3();
-					*state = OFF_LED3;
-				}
+			if(getCurrentTime() - previousTime > 0)	{
+				previousTime = getCurrentTime();
+				turnOnLED3();
+				*state = OFF_LED3;
 			}
 			break;
 
 		case OFF_LED3:
-			if((counter != 1))	{
-				if(getCurrentTime() - previousTime > 0)	{
-					previousTime = getCurrentTime();
-					turnOffLED3();
-					*state = FINAL;
-				}
+			if(getCurrentTime() - previousTime > 0)	{
+				previousTime = getCurrentTime();
+				turnOffLED3();
+				*state = COUNTER;
 			}
 			break;
 
-		case FINAL:
-			*state = BUTTON_STAT;
+		case COUNTER:
+			counter++;
+
+			if(counter == 5)
+				*state = HALT;
+			else *state = BUTTON_STAT;
+
 			break;
 
-		default:
+		case HALT:
+
+			if(buttonStat())
+				*state = HALT;
+			else {
+				*state = BUTTON_STAT;
+			}
+
 			break;
+
+		default:	*state = INITIAL; break;
 	}
 }
 

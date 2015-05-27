@@ -10,7 +10,8 @@ typedef enum{
 	ON_LED3,
 	OFF_LED3,
 	BUTTON_STAT,
-	STOP,
+	COUNTER,
+	HALT,
 	FINAL
 }State;
 

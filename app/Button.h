@@ -4,7 +4,7 @@
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_gpio.h"
 
-#define buttonPressed() HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_0);
-
 void initButton();
+int buttonStat();
+
 #endif //Button_H
