@@ -10,6 +10,11 @@
 #define turnOnLED4()	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_5, GPIO_PIN_SET);
 #define turnOffLED4()	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_5, GPIO_PIN_RESET);
 
+#include "State.h"
+
 void configureLED();
+void SDLED1(State *state);
+void SDLED2(State *state);
+void SDLED3(State *state);
 
 #endif // LED_H

@@ -10,11 +10,17 @@
       <target file="stm32f4xx_hal.o" lastModified="14d951d462d">
          <source file="..\..\..\..\stm32cubef4\STM32Cube_FW_F4_V1.5.0\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c" lastModified="14c0ebff2fe"/>
       </target>
-      <target file="LED.o" lastModified="14d951d4959">
+      <target file="SDLED1.o" lastModified="14d999f5617">
+         <source file="..\..\..\app\SDLED1.c" lastModified="14d999e6bc6"/>
+      </target>
+      <target file="LED.o" lastModified="14d999f5865">
          <source file="..\..\..\app\LED.c" lastModified="14d8a187e1f"/>
       </target>
       <target file="system_stm32f4xx.o" lastModified="14d951d4816">
          <source file="..\..\..\..\stm32cubef4\STM32Cube_FW_F4_V1.5.0\Projects\STM32F4-Discovery\Templates\Src\system_stm32f4xx.c" lastModified="14c2197466e"/>
+      </target>
+      <target file="SDLED2.o" lastModified="14d999f5692">
+         <source file="..\..\..\app\SDLED2.c" lastModified="14d999f4008"/>
       </target>
       <target file="startup_stm32f429xx.o" lastModified="14d951d448a">
          <source file="..\..\..\app\startup_stm32f429xx.s" lastModified="14c0ebfce8d"/>
@@ -22,14 +28,17 @@
       <target file="stm32f4xx_hal_cortex.o" lastModified="14d951d47af">
          <source file="..\..\..\..\stm32cubef4\STM32Cube_FW_F4_V1.5.0\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_cortex.c" lastModified="14c0ebff33c"/>
       </target>
-      <target file="main.o" lastModified="14d951d4468">
-         <source file="..\..\..\app\main.c" lastModified="14d951c801c"/>
+      <target file="main.o" lastModified="14d99a1a190">
+         <source file="..\..\..\app\main.c" lastModified="14d99a19876"/>
       </target>
       <target file="stm32f4xx_hal_gpio.o" lastModified="14d951d48bf">
          <source file="..\..\..\..\stm32cubef4\STM32Cube_FW_F4_V1.5.0\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_gpio.c" lastModified="14c0ebff197"/>
       </target>
-      <target file="Timer.o" lastModified="14d951d456e">
-         <source file="..\..\..\app\Timer.c" lastModified="14d8a205bd4"/>
+      <target file="SDLED3.o" lastModified="14d99a124d7">
+         <source file="..\..\..\app\SDLED3.c" lastModified="14d99a0f39c"/>
+      </target>
+      <target file="Timer.o" lastModified="14d9993c3f3">
+         <source file="..\..\..\app\Timer.c" lastModified="14d999396e2"/>
       </target>
    </processor>
 </history>

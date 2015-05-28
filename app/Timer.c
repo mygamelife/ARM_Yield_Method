@@ -1,12 +1,10 @@
-#include "stm32f4xx_hal.h"
-#include "stm32f4xx_hal_gpio.h"
 #include "Timer.h"
 
 uint32_t getCurrentTime(){
 	static uint32_t counter = 0;
 	static uint32_t currentTime = 0;
 
-	if(counter++ >= 1){
+	if(counter++ >= 100){
 		counter = 0;
 		currentTime++;
 	}

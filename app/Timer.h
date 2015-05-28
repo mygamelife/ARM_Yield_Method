@@ -9,6 +9,8 @@
 #define TWO_HUNDRED_MILI_SEC 200
 #define FIVE_HUNDRED_MILI_SEC 500
 
+#include "stm32f4xx_hal_gpio.h"
+
 uint32_t getCurrentTime();
 void delay(uint32_t delayCycle);
 int waitWithoutDelay (int previousTime, int delayMilliSecond);
