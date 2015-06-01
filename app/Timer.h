@@ -13,7 +13,6 @@
 
 uint32_t getCurrentTime();
 void delay(uint32_t delayCycle);
-int waitWithoutDelay (int previousTime, int delayMilliSecond);
-
+int waitForDelay(int delayMilliSecond);
 
 #endif // Timer_H

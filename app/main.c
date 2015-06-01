@@ -4,45 +4,95 @@
 #include "Timer.h"
 #include "Button.h"
 #include "State.h"
-
-typedef struct	{
-	State state;
-}TaskBlock;
-
-#define initTaskBlock(x)	((x)->state = 0)
-#define yield(x)			state = __LINE__; break; case __LINE__:;
-#define beginTask(x)		switch(state)	{ case 0:
-#define endTask(x)			}
+#include "Yield.h"
 
 int main(void)	{
 	static int *state_LED1 = INITIAL, *state_LED2 = INITIAL, *state_LED3 = INITIAL;
+	TaskBlock tb,tb2,tb3;
+
 	configureLED();
 	initButton();
+	initTaskBlock(&tb);
+	initTaskBlock(&tb2);
+	initTaskBlock(&tb3);
 
     while(1)	{
-    	SDLED1(&state_LED1);
-    	SDLED2(&state_LED2);
-    	SDLED3(&state_LED3);
-    	//test();
+    	//LED1(&tb);
+    	//LED2(&tb2);
+    	LED3(&tb3);
     }
 }
 
-void test()	{
-	static int state = 0;
-	static int here = 0;
+void LED1(TaskBlock *tb)	{
 
-	/*switch(state)	{
-	case 1:*/
-	beginTask();
+	startTask(tb);
+	while(1)	{
+		turnOnLED1();
 
-	here = 0;
-	yield();
+		while(halfSecHasNotExpired())	{
+			yield(tb);
+		}
 
-	here = 1;
-	yield();
+		turnOffLED1();
 
-	here = 2;
-	yield();
+		while(halfSecHasNotExpired())	{
+			yield(tb);
+		}
+	}
+	endTask(x);
+}
 
-	endTask();
+void LED2(TaskBlock *tb2)	{
+
+	startTask(tb2);
+	while(1)	{
+		turnOnLED2();
+
+		while(oneHundredMiliSecHasNotExpired())	{
+			yield(tb2);
+		}
+
+		turnOffLED2();
+
+		while(oneHundredMiliSecHasNotExpired())	{
+			yield(tb2);
+		}
+	}
+	endTask(x);
+}
+
+void LED3(TaskBlock *tb3)	{
+	static int i = 0, count = 0;
+
+	turnOffLED3();
+
+	startTask(tb3);
+
+	while(1)	{
+		if(buttonStat())	{
+
+			while(count < 5)	{
+				turnOnLED3();
+
+				while(halfSecHasNotExpired())	{
+					yield(tb3);
+				}
+
+				turnOffLED3();
+
+				while(halfSecHasNotExpired())	{
+					yield(tb3);
+				}
+
+				count++;
+			}
+			count = 0;
+			while(buttonStat())	{
+				yield(tb3);
+			}
+		}
+
+		yield(tb3);
+	}
+	endTask(x);
 }
