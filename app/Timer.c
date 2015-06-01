@@ -47,3 +47,14 @@ int oneHundredMiliSecHasNotExpired()	{
 	}
 	return 1;
 }
+
+int threeHundredSecHasNotExpired()	{
+	static int previousTime = 0;
+
+	if((getCurrentTime() - previousTime) > 600)	{
+		previousTime = getCurrentTime();
+		return 0;
+	}
+	return 1;
+}
+

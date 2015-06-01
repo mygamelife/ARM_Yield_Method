@@ -17,8 +17,8 @@ int main(void)	{
 	initTaskBlock(&tb3);
 
     while(1)	{
-    	//LED1(&tb);
-    	//LED2(&tb2);
+    	LED1(&tb);
+    	LED2(&tb2);
     	LED3(&tb3);
     }
 }
@@ -64,8 +64,6 @@ void LED2(TaskBlock *tb2)	{
 void LED3(TaskBlock *tb3)	{
 	static int i = 0, count = 0;
 
-	turnOffLED3();
-
 	startTask(tb3);
 
 	while(1)	{
@@ -74,13 +72,13 @@ void LED3(TaskBlock *tb3)	{
 			while(count < 5)	{
 				turnOnLED3();
 
-				while(halfSecHasNotExpired())	{
+				while(threeHundredSecHasNotExpired())	{
 					yield(tb3);
 				}
 
 				turnOffLED3();
 
-				while(halfSecHasNotExpired())	{
+				while(threeHundredSecHasNotExpired())	{
 					yield(tb3);
 				}
 
@@ -88,10 +86,10 @@ void LED3(TaskBlock *tb3)	{
 			}
 			count = 0;
 			while(buttonStat())	{
+				turnOffLED3();
 				yield(tb3);
 			}
 		}
-
 		yield(tb3);
 	}
 	endTask(x);
