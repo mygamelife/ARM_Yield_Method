@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g2 -Map=exploreCC.map -O0 --gc-sections -LC:/exploreCC -TC:/exploreCC/stm32f407vg_flash.ld -g">
-      <target file="exploreCC.elf" lastModified="14d99a1a3d2">
-         <source file="..\obj\SDLED3.o" lastModified="14d99a124d7"/>
-         <source file="..\obj\SDLED1.o" lastModified="14d999f5617"/>
-         <source file="..\obj\stm32f4xx_hal.o" lastModified="14d951d462d"/>
-         <source file="..\obj\stm32f4xx_hal_cortex.o" lastModified="14d951d47af"/>
-         <source file="..\obj\stm32f4xx_hal_gpio.o" lastModified="14d951d48bf"/>
-         <source file="..\obj\LED.o" lastModified="14d999f5865"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="14d951d4816"/>
-         <source file="..\obj\main.o" lastModified="14d99a1a190"/>
-         <source file="..\obj\stm32f4xx_hal_rcc.o" lastModified="14d951d46fd"/>
-         <source file="..\obj\Button.o" lastModified="14d951d49f3"/>
-         <source file="..\obj\Timer.o" lastModified="14d9993c3f3"/>
-         <source file="..\obj\startup_stm32f429xx.o" lastModified="14d951d448a"/>
-         <source file="..\obj\SDLED2.o" lastModified="14d999f5692"/>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g2 -Map=exploreCC.map -O0 --gc-sections -LC:/ARM-BlinkLED -TC:/ARM-BlinkLED/stm32f407vg_flash.ld -g">
+      <target file="exploreCC.elf" lastModified="14dacce83d9">
+         <source file="..\obj\SDLED3.o" lastModified="14dacce7886"/>
+         <source file="..\obj\SDLED1.o" lastModified="14dacce76ec"/>
+         <source file="..\obj\stm32f4xx_hal.o" lastModified="14dacce7ba6"/>
+         <source file="..\obj\stm32f4xx_hal_cortex.o" lastModified="14dacce7e15"/>
+         <source file="..\obj\stm32f4xx_hal_gpio.o" lastModified="14dacce7f53"/>
+         <source file="..\obj\LED.o" lastModified="14dacce8006"/>
+         <source file="..\obj\main.o" lastModified="14dacce7a2b"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14dacce7e92"/>
+         <source file="..\obj\stm32f4xx_hal_rcc.o" lastModified="14dacce7c85"/>
+         <source file="..\obj\Button.o" lastModified="14dacce80b4"/>
+         <source file="..\obj\Timer.o" lastModified="14dacce7ad5"/>
+         <source file="..\obj\startup_stm32f429xx.o" lastModified="14dacce7a49"/>
+         <source file="..\obj\SDLED2.o" lastModified="14dacce77f6"/>
       </target>
    </processor>
 </history>
